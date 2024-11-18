@@ -25,7 +25,14 @@ def compress_file(file_path):
             f.write(compressed_data)
 
         # Extract file name and extension for metadata
-        file_name, file_extension = extract_metadata(file_path)
+        # Extract file name with extension
+        file_name_with_extension = os.path.basename(file_path)
+
+        # Extract file name without extension
+        file_name = os.path.splitext(file_name_with_extension)[0]
+
+        # Extract file extension
+        file_extension = os.path.splitext(file_name_with_extension)[1]
 
         print(f"File '{file_path}' compressed and saved to '{compressed_file_path}'")
         return compressed_file_path, file_name, file_extension
