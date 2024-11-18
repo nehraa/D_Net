@@ -7,7 +7,7 @@ def Upload(file_path):
     key = Encryption.generate_symmetric_key()
     encrypted_data = Encryption.encrypt(compressed_data, key)
     Shards = Sharding.shard_data(encrypted_data, 1024)
-    return Shards
+    return Shards,key
 
 def Download(Shards,key):
     encrypted_data = Sharding.reconstruct_data(Shards)
