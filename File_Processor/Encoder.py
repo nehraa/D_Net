@@ -67,37 +67,3 @@ def decompress_file(compressed_file_path, file_name, file_extension):
         print(f"Error: The file '{compressed_file_path}' was not found.")
     except Exception as e:
         print(f"Error: {e}")
-
-def extract_metadata(file_path):
-    """
-    Extracts the file name and extension from a given file path.
-
-    Args:
-        file_path (str): The full path to the file.
-
-    Returns:
-        tuple: A tuple containing the file name (without extension) and the file extension.
-    """
-    # Use os.path to extract file name and extension
-    file_name, file_extension = os.path.splitext(os.path.basename(file_path))
-    return file_name, file_extension
-
-def extract_metadata(file_path):
-    try:
-        # Open the file in binary read mode
-        with open(file_path, 'rb') as f:
-            data = f.read()
-
-        # Extract metadata: file size and compression type
-        metadata = {
-            'original_size': len(data),
-            'compression_type': 'LZO'
-        }
-        
-        return metadata
-    except FileNotFoundError:
-        print(f"Error: The file '{file_path}' was not found.")
-        return None
-    except Exception as e:
-        print(f"Error: {e}")
-        return None
