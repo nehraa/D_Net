@@ -1,6 +1,7 @@
 import Protocols
 import threading
 import time
+import uuid
 
 class Node:
     def __init__(self):
@@ -14,6 +15,7 @@ class Node:
         self.shard_table = {}  # A dictionary mapping shard IDs to the IP addresses of their holders
         self.Session_Port = 5000  # Port used for session communication
         self.Data_Port = 5001  # Port used for data communication
+        self.id = uuid.uuid4
         
         # Flags to manage the status of various threads
         self.session_pong_thread_running = False  # To check if the session pong thread is running
