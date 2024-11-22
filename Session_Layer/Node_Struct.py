@@ -16,6 +16,7 @@ class Node:
         self.Session_Port = 5000  # Port used for session communication
         self.Data_Port = 5001  # Port used for data communication
         self.id = uuid.uuid4
+        self.ip = None #For now will retreive the public ip 
         
         # Flags to manage the status of various threads
         self.session_pong_thread_running = False  # To check if the session pong thread is running

@@ -41,9 +41,5 @@ def Pong(self, port):
     if data == (63).to_bytes(1, 'big'):
       print(f"Received Ping from {addr}")  # For testing purposes only
       sock.sendto((1).to_bytes(1, 'big'), addr)  # Rather than sending PING(4 bytes) send just one
-      if self.prev == None:
-          self.prev = addr
-      elif len(self.neighbour) < 3:
-        self.add_neighbour(self,addr)
   #finally:
     #sock.close()  # Ensure the socket is closed when done
